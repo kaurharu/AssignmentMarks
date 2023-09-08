@@ -26,7 +26,16 @@ public class AssignmentMarks
         for(i=0;i<30;i++)
         {
             System.out.println("Enter Assignmnet marks for student " + i+1);
-            marks[i]=input.nextDouble();
+            //marks[i]=input.nextDouble();
+            if(marks[i]<= 30)
+            {
+                marks[i]=input.nextDouble();
+            }
+            else
+            {
+               System.out.println("Entered input is invalid please again enter Assignmnet marks for student " + i+1);
+               marks[i]=input.nextDouble(); 
+            }
         }
     }
     public static void main(String[] args) {
