@@ -22,11 +22,11 @@ public class AssignmentMarks
 
     public void EnterStudentMarks()
     {
-        System.out.println("Please enter the marks for " + assignmentName + " 30 students");
+        System.out.println("Please enter the marks of " + assignmentName + " for 30 students");
         Scanner input = new Scanner(System.in);
         for(i=0;i<30;i++)
         {
-            System.out.println("Enter Assignmnet marks for student " + i+1);
+            System.out.println("Enter " + assignmentName +" marks for student " + (i+1));
             //marks[i]=input.nextDouble();
             if(marks[i]<= 30)
             {
@@ -84,7 +84,7 @@ public class AssignmentMarks
     {
         for(i=0;i<30;i++)
         {
-            System.out.println("Marks of student " + i+1 + " in " + assignmentName + ": " + marks[i]);
+            System.out.println("Marks of student " + (i+1) + " in " + assignmentName + ": " + marks[i]);
         }
         System.out.println("The hightest marks obtained by student " + studentHighest + "in " + assignmentName + ": " + max);
         System.out.println("The lowest marks obtained by student " + studentLowest + "in " + assignmentName + ": " + min);
