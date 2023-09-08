@@ -9,7 +9,9 @@ public class AssignmentMarks
     //declare variable in class to use variable globally
     String assignmentName;                          //declare variable to store Assignmnet name
     double [] marks = new double[30];               //declare array to store marks
-
+    double min, max, mean, standardDeviation, variance;
+    int i;                                  //declare variable for iteration
+        
     public void EnterAssignmentName()              //Method for receiving assignmnet name (f1)
     {
         System.out.println("Welcome");          //Welcome statemnet for program                  
@@ -21,7 +23,6 @@ public class AssignmentMarks
     public void EnterStudentMarks()
     {
         System.out.println("Please enter the marks for " + assignmentName + " 30 students");
-        int i;                                  //declare variable for iteration
         Scanner input = new Scanner(System.in);
         for(i=0;i<30;i++)
         {
@@ -38,9 +39,50 @@ public class AssignmentMarks
             }
         }
     }
+
+    public void MaxMin()
+    {
+        min = marks[0];
+        max = marks[0];
+        for(i=0;i<30;i++)
+        {
+            if(marks[i] >= max)
+            {
+                max = marks[i];
+            }
+            else if(marks[i] <= min)
+            {
+                min = marks[i];
+            }
+        }
+    }
+
+    public void MeanCalculate()
+    {
+        double sum = 0;
+        for(i=0;i<30;i++)
+        {
+            sum = sum + marks[i];
+        }
+        mean = sum/30;
+    }
+
+    public void StandardDeviationCalculation()
+    {
+        double deviation = 0; 
+        for(i=0;i<30;i++)
+        {
+            deviation = deviation + ((marks[i] - mean) * (marks[i] - mean));
+            variance = deviation / 30;
+            standardDeviation = Math.sqrt(variance);
+        }
+    }
+
     public static void main(String[] args) {
         AssignmentMarks assignmentObject = new AssignmentMarks();
         assignmentObject.EnterAssignmentName();
         assignmentObject.EnterStudentMarks();
+        assignmentObject.MaxMin();
+        assignmentObject.MeanCalculate();
     }
 }
