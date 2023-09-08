@@ -10,7 +10,7 @@ public class AssignmentMarks
     String assignmentName;                          //declare variable to store Assignmnet name
     double [] marks = new double[30];               //declare array to store marks
     double min, max, mean, standardDeviation, variance;
-    int i;                                  //declare variable for iteration
+    int i, studentHighest, studentLowest;                                  //declare variable for iteration
         
     public void EnterAssignmentName()              //Method for receiving assignmnet name (f1)
     {
@@ -49,10 +49,12 @@ public class AssignmentMarks
             if(marks[i] >= max)
             {
                 max = marks[i];
+                studentHighest = i;
             }
             else if(marks[i] <= min)
             {
                 min = marks[i];
+                studentLowest = i;
             }
         }
     }
@@ -78,11 +80,21 @@ public class AssignmentMarks
         }
     }
 
+    public void Display()
+    {
+        for(i=0;i<30;i++)
+        {
+            System.out.println("Marks of student " + i+1 + " in " + assignmentName + ": " + marks[i]);
+        }
+        System.out.println("The hightest marks obtained by student " + studentHighest + "in " + assignmentName + ": " + max);
+        System.out.println("The lowest marks obtained by student " + studentLowest + "in " + assignmentName + ": " + min);
+        System.out.println("The mean of all marks obtained "+mean);
+        System.out.println("The standard deviation of all marks obtained "+standardDeviation);
+    }
     public static void main(String[] args) {
         AssignmentMarks assignmentObject = new AssignmentMarks();
         assignmentObject.EnterAssignmentName();
         assignmentObject.EnterStudentMarks();
-        assignmentObject.MaxMin();
-        assignmentObject.MeanCalculate();
+        assignmentObject.Display();
     }
 }
