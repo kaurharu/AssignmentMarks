@@ -24,7 +24,7 @@ public class AssignmentMarks
     {
         System.out.println("Please enter the marks of " + assignmentName + " for 30 students");
         Scanner input = new Scanner(System.in);
-        for(i=0;i<10;i++)
+        for(i=0;i<30;i++)
         {
             System.out.println("Enter " + assignmentName +" marks for student " + (i+1));
             //marks[i]=input.nextDouble();
@@ -44,7 +44,7 @@ public class AssignmentMarks
     {
         min = marks[0];
         max = marks[0];
-        for(i=0;i<10;i++)
+        for(i=0;i<30;i++)
         {
             if(marks[i] >= max)
             {
@@ -63,49 +63,41 @@ public class AssignmentMarks
     public void MeanCalculate()
     {
         double sum = 0;
-        for(i=0;i<10;i++)
+        for(i=0;i<30;i++)
         {
             sum = sum + marks[i];
         }
-        mean = sum/10;
+        mean = sum/30;
         System.out.println(mean);
     }
 
     public void StandardDeviationCalculation()
     {
         double deviation = 0;
-        for(i=0;i<10;i++)
+        for(i=0;i<30;i++)
         {
             deviation = deviation + ((marks[i] - mean) * (marks[i] - mean));
         }
-        variance = deviation / 10;
+        variance = deviation / 30;
         standardDeviation = Math.sqrt(variance);
-        System.out.println(deviation);
-        System.out.println(variance);
-        System.out.println(standardDeviation);
     }
 
     public void Display()
     {
-        for(i=0;i<10;i++)
+        for(i=0;i<30;i++)
         {
             System.out.println("Marks of student " + (i+1) + " in " + this.assignmentName + ": " + this.marks[i]);
         }
         System.out.println("The hightest marks obtained by student " + this.studentHighest + " in " + this.assignmentName + ": " + this.max);
         System.out.println("The lowest marks obtained by student " + this.studentLowest + " in " + this.assignmentName + ": " + this.min);
-        System.out.println("The standard deviation of all marks obtained " + this.standardDeviation);
         System.out.println("The mean of all marks obtained " + this.mean);
-        System.out.println(standardDeviation);
-        //StandardDeviationCalculation();
+        StandardDeviationCalculation();
         System.out.println("The standard deviation of all marks obtained " + this.standardDeviation);
     }
     public static void main(String[] args) {
         AssignmentMarks assignmentObject = new AssignmentMarks();
         assignmentObject.EnterAssignmentName();
         assignmentObject.EnterStudentMarks();
-        assignmentObject.MeanCalculate();
-        assignmentObject.MaxMin();
         assignmentObject.Display();
-        assignmentObject.StandardDeviationCalculation();
     }
 }
