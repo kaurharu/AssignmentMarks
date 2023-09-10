@@ -9,7 +9,7 @@ public class AssignmentMarks
     //declare variable in class to use variable globally
     String assignmentName;                          //declare variable to store Assignmnet name
     double [] marks = new double[30];               //declare array to store marks
-    double min, max, mean, standardDeviation, variance;
+    double min, max, mean, standardDeviation, variance;     //declare variable to perform given functions
     int i, studentHighest, studentLowest;                                  //declare variable for iteration
         
     public void EnterAssignmentName()              //Method for receiving assignmnet name (f1)
@@ -93,8 +93,11 @@ public class AssignmentMarks
         }
         System.out.println("The hightest marks obtained by student " + this.studentHighest + " in " + this.assignmentName + ": " + this.max);
         System.out.println("The lowest marks obtained by student " + this.studentLowest + " in " + this.assignmentName + ": " + this.min);
-        System.out.println("The mean of all marks obtained "+ this.mean);
-        System.out.println("The standard deviation of all marks obtained "+ this.standardDeviation);
+        System.out.println("The standard deviation of all marks obtained " + this.standardDeviation);
+        System.out.println("The mean of all marks obtained " + this.mean);
+        System.out.println(standardDeviation);
+        //StandardDeviationCalculation();
+        System.out.println("The standard deviation of all marks obtained " + this.standardDeviation);
     }
     public static void main(String[] args) {
         AssignmentMarks assignmentObject = new AssignmentMarks();
