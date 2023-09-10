@@ -14,29 +14,37 @@ public class AssignmentMarks
         
     public void EnterAssignmentName()              //Method for receiving assignmnet name (f1)
     {
-        System.out.println("Welcome");          //Welcome statemnet for program                  
+        System.out.println("Welcome");          //Welcome statemnet for program
         System.out.println("Please Enter the Name of the Assignment");
         Scanner input = new Scanner(System.in);
         assignmentName = input.nextLine();        //Received assignment name
     }
 
-    public void EnterStudentMarks()
+    public void EnterStudentMarks()             //F1: method for receiving marks
     {
         System.out.println("Please enter the marks of " + assignmentName + " for 30 students");
         Scanner input = new Scanner(System.in);
         for(i=0;i<30;i++)
         {
             System.out.println("Enter " + assignmentName +" marks for student " + (i+1));
-            //marks[i]=input.nextDouble();
-            if(marks[i]<= 30)
+            double temp = input.nextDouble();
+            if(temp <= 30)
             {
-                marks[i]=input.nextDouble();
+                marks[i]=temp;
             }
             else
             {
-               System.out.println("Entered input is invalid please again enter Assignmnet marks for student " + i+1);
-               marks[i]=input.nextDouble(); 
+               System.out.println("Invalid Input");
+               i--;
             }
+        }
+    }
+
+    public void DisplayMarks()
+    {
+        for(i=0;i<30;i++)
+        {
+            System.out.println("Marks of student " + (i+1) + " in " + this.assignmentName + ": " + this.marks[i]);
         }
     }
 
@@ -49,15 +57,16 @@ public class AssignmentMarks
             if(marks[i] >= max)
             {
                 max = marks[i];
-                studentHighest = i;
+                studentHighest = i+1;
             }
             else if(marks[i] <= min)
             {
                 min = marks[i];
-                studentLowest = i;
+                studentLowest = i+1;
             }
         }
-        System.out.println(max +" "+ min + " " + studentHighest +" "+ studentLowest);
+        System.out.println("The hightest marks obtained by student " + this.studentHighest + " in " + this.assignmentName + ": " + this.max);
+        System.out.println("The lowest marks obtained by student " + this.studentLowest + " in " + this.assignmentName + ": " + this.min);
     }
 
     public void MeanCalculate()
@@ -68,7 +77,7 @@ public class AssignmentMarks
             sum = sum + marks[i];
         }
         mean = sum/30;
-        System.out.println(mean);
+        System.out.println("The mean of all marks obtained " + this.mean);
     }
 
     public void StandardDeviationCalculation()
@@ -80,24 +89,16 @@ public class AssignmentMarks
         }
         variance = deviation / 30;
         standardDeviation = Math.sqrt(variance);
-    }
-
-    public void Display()
-    {
-        for(i=0;i<30;i++)
-        {
-            System.out.println("Marks of student " + (i+1) + " in " + this.assignmentName + ": " + this.marks[i]);
-        }
-        System.out.println("The hightest marks obtained by student " + this.studentHighest + " in " + this.assignmentName + ": " + this.max);
-        System.out.println("The lowest marks obtained by student " + this.studentLowest + " in " + this.assignmentName + ": " + this.min);
-        System.out.println("The mean of all marks obtained " + this.mean);
-        StandardDeviationCalculation();
         System.out.println("The standard deviation of all marks obtained " + this.standardDeviation);
     }
+
     public static void main(String[] args) {
         AssignmentMarks assignmentObject = new AssignmentMarks();
         assignmentObject.EnterAssignmentName();
         assignmentObject.EnterStudentMarks();
-        assignmentObject.Display();
+        assignmentObject.DisplayMarks();
+        assignmentObject.MaxMin();
+        assignmentObject.MeanCalculate();
+        assignmentObject.StandardDeviationCalculation();
     }
 }
