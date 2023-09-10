@@ -12,7 +12,7 @@ public class AssignmentMarks
     double min, max, mean, standardDeviation, variance;     //declare variable to perform given functions
     int i, studentHighest, studentLowest;                                  //declare variable for iteration
         
-    public void EnterAssignmentName()              //Method for receiving assignmnet name (f1)
+    public void EnterAssignmentName()              //F1: Method for receiving assignmnet name (f1)
     {
         System.out.println("Welcome");          //Welcome statemnet for program
         System.out.println("Please Enter the Name of the Assignment");
@@ -20,7 +20,7 @@ public class AssignmentMarks
         assignmentName = input.nextLine();        //Received assignment name
     }
 
-    public void EnterStudentMarks()             //F1: method for receiving marks
+    public void EnterStudentMarks()             //F2: method for receiving marks
     {
         System.out.println("Please enter the marks of " + assignmentName + " for 30 students");
         Scanner input = new Scanner(System.in);
@@ -34,13 +34,13 @@ public class AssignmentMarks
             }
             else
             {
-               System.out.println("Invalid Input");
+               System.out.println("Invalid Input");     //F3: invalid input for marks more than 30
                i--;
             }
         }
     }
 
-    public void DisplayMarks()
+    public void DisplayMarks()                          //F4: displaying marks
     {
         for(i=0;i<30;i++)
         {
@@ -48,7 +48,7 @@ public class AssignmentMarks
         }
     }
 
-    public void MaxMin()
+    public void MaxMin()                                //F5: find highest and lowest marks
     {
         min = marks[0];
         max = marks[0];
@@ -69,7 +69,7 @@ public class AssignmentMarks
         System.out.println("The lowest marks obtained by student " + this.studentLowest + " in " + this.assignmentName + ": " + this.min);
     }
 
-    public void MeanCalculate()
+    public void MeanCalculate()         //F6: finding mean of all marks obtained
     {
         double sum = 0;
         for(i=0;i<30;i++)
@@ -80,7 +80,7 @@ public class AssignmentMarks
         System.out.println("The mean of all marks obtained " + this.mean);
     }
 
-    public void StandardDeviationCalculation()
+    public void StandardDeviationCalculation()              //F6: finding Standarad deviation
     {
         double deviation = 0;
         for(i=0;i<30;i++)
@@ -93,7 +93,7 @@ public class AssignmentMarks
     }
 
     public static void main(String[] args) {
-        AssignmentMarks assignmentObject = new AssignmentMarks();
+        AssignmentMarks assignmentObject = new AssignmentMarks();           //object for calling all methods
         assignmentObject.EnterAssignmentName();
         assignmentObject.EnterStudentMarks();
         assignmentObject.DisplayMarks();
