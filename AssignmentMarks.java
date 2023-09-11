@@ -3,7 +3,7 @@
 //Create a class for Assignment Marks Program
 
 import java.util.Scanner;
-
+//Create a class for Assignment Marks Program
 public class AssignmentMarks
 {
     //declare variable in class to use variable globally
