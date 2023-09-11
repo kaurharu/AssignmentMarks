@@ -10,7 +10,7 @@ public class AssignmentMarks
     String assignmentName;                          //declare variable to store Assignmnet name
     double [] marks = new double[30];               //declare array to store marks
     double min, max, mean, standardDeviation, variance;     //declare variable to perform given functions
-    int i, studentHighest, studentLowest;                                  //declare variable for iteration
+    int i, studentHighest = 0, studentLowest = 0;                                  //declare variable for iteration
         
     public void EnterAssignmentName()              //F1: Method for receiving assignmnet name (f1)
     {
@@ -56,17 +56,21 @@ public class AssignmentMarks
         {
             if(marks[i] >= max)
             {
+                if(max > marks[i])
                 max = marks[i];
-                studentHighest = i+1;
+                else if(max == marks[i])
+                studentHighest = studentHighest + 1;
             }
             else if(marks[i] <= min)
             {
+                if(min < marks[i])
                 min = marks[i];
-                studentLowest = i+1;
+                else if(min == marks[i])
+                studentLowest = studentLowest + 1;
             }
         }
-        System.out.println("The hightest marks obtained by student " + this.studentHighest + " in " + this.assignmentName + ": " + this.max);
-        System.out.println("The lowest marks obtained by student " + this.studentLowest + " in " + this.assignmentName + ": " + this.min);
+        System.out.println("The hightest marks obtained by " + this.studentHighest + " students in " + this.assignmentName + ": " + this.max);
+        System.out.println("The lowest marks obtained by " + this.studentLowest + " studnets in " + this.assignmentName + ": " + this.min);
     }
 
     public void MeanCalculate()         //F6: finding mean of all marks obtained
