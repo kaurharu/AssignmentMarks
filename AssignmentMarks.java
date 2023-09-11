@@ -3,6 +3,7 @@
 //Create a class for Assignment Marks Program
 
 import java.util.Scanner;
+
 //Create a class for Assignment Marks Program
 public class AssignmentMarks
 {
